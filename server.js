@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 // 启用CORS和JSON解析中间件
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.'));
+app.use(express.static('public'));
 
 // 火山方舟API配置
 const API_KEY = process.env.VOLCES_API_KEY;

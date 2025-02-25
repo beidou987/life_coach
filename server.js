@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // 启用CORS和JSON解析中间件
 app.use(cors());
@@ -11,7 +12,7 @@ app.use(express.json());
 app.use(express.static('.'));
 
 // 火山方舟API配置
-const API_KEY = 'bd9e0224-a9e6-46d3-91a5-1633b87bd2df';
+const API_KEY = process.env.VOLCES_API_KEY;
 const API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
 
 // 处理聊天请求
